@@ -1,171 +1,113 @@
-/* Variables para colores */
-:root{
-    --blanco:#ffffff;
-    --negro:#000000;
-    --azulfuerte:#0087FF;
-    --azulclaro:#00C5FF;
-    --amarillo:#ffc672;
-    --amarilloclaro:#ffe383;
-    --rosa:#FF0080;
-    --verdemanzana:#8DB600;
-    --azuloscuro: #070764;
-}
-
-
-/* Snippet para box-sizing */
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-    scroll-snap-type: y mandatory;
-  }
-
-*, *:before, *:after {
-    box-sizing: inherit;
-  }
-
-body{
-    font-size: 16px; /* 1rem = 10px */
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
     font-family: 'Sen', sans-serif;
-    background-image: linear-gradient(to right, #090979 40%,#00D4FF);
-}
-
-/* Globales */
-
-.contenedor{
-    max-width: 120rem;
-    margin: 0 auto;
-}
-
-.boton{
-    color: #ffffff;
-    text-decoration: none;
-    background-color: var(--rosa);
-    padding: 1rem 2rem;
-    margin-top: 2rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 1rem;
-    width: 90%;
-    text-align: center;
-    border: none;
-}
-
-@media (min-width: 768px){
-    .boton{
-        
-    }
-}
-
-/* Tamaños de letra */
-
-h1{
-    font-size: 3.8rem;
-}
-
-h2{
-    font-size: 2.8rem;
-}
-
-h3{
-    font-size: 1.8rem;
-}
-
-h1,h2,h3{
-    text-align: center;
-}
-
-/* Utilidades */
-
-.nav-bg{
-    background-color: rgba(0,0,0, 20%);
-    margin-bottom: 2rem;
-    border-radius: 2rem;
-}
-
-/* Navegacion principal */
-
-.nav-principal{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-principal a:last-of-type{
-    margin-bottom: 2rem;
-}
-
-
-@media (min-width: 768px){
-    .nav-principal{
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    .nav-principal a:last-of-type{
-        margin-bottom: 0;
-    }
-}
-
-.nav-principal a{
-    display: block;
-    text-align: center;
-    color:var(--blanco);
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 1rem;
-}
-
-.principal{
-    display: flex;
-    flex-direction: column;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 65rem;
-    position: relative;
-    margin-bottom: 3rem;
-}
-
-.contenido-restaurant{
-    position: absolute;
-    width: 100%;
     height: 100%;
+    color: #333;
+    background-color: #f0f8ff;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+}
+
+/* Header */
+header {
+    background-color: #013a63;
+    color: white;
+    padding: 0.5rem 0;
+}
+
+.nav-bg {
+    width: 100%;
+}
+
+.nav-principal {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido */
+}
+
+.nav-principal a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.nav-principal a:hover {
+    color: #ffb400;
+}
+
+/* Main content */
+main {
+    flex: 1; /* Ocupa el espacio restante entre header y footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    gap: 2rem; /* Espacio entre elementos */
+}
+
+.contenido-restaurant {
+    flex: 1 1 500px; /* Crece y encoge según el espacio disponible */
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
 }
 
-.contenido-restaurant h2,
-.contenido-restaurant p{
-    color: var(--blanco);
+.descripcion-restaurant {
+    margin-top: 1.5rem;
 }
 
-.contenido-restaurant{
-    display: flex;
+.descripcion-restaurant p {
+    font-size: 1.2rem;
+    line-height: 1.5;
 }
 
-.plato{
-    max-width: 40rem;
+.plato {
+    flex: 1;
+    max-width: 500px;
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
-.descripcion-restaurant{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 3rem;
+/* Button */
+.boton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #ffb400;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s;
+    width: fit-content;
 }
 
-@media (min-width: 760px){
-    .descripcion-restaurant{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        row-gap: 3rem;
-    }
-    .descripcion-restaurant p{
-        margin: 0 10rem;
-    }
+.boton:hover {
+    background-color: #013a63;
+}
+
+/* Footer */
+.footer {
+    background-color: #013a63;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
 }
